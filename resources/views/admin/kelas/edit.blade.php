@@ -14,7 +14,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" name="name" class="form-control" value="{{ $kelas->name }}">
+                                <input type="text" name="kelas" class="form-control" value="{{ $kelas->name }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Deskripsi</label>

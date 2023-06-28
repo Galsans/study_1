@@ -33,7 +33,7 @@ class KelasController extends Controller
     {
         //
         $request->validate([
-            'name'=>'required',
+            'kelas'=>'required',
             'dkr'=>'required',
         ]);
         Kelas::create($request->all());
@@ -59,7 +59,7 @@ class KelasController extends Controller
     {
         //
         $request->validate([
-            'name'=>'required',
+            'kelas'=>'required',
             'dkr'=>'required',
         ]);
         $kelas = Kelas::find($id);
