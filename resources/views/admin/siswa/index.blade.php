@@ -5,9 +5,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Table Kelas
-                            <a href="{{ route('kelas.create') }}" class="btn btn-success float-end">ADD</a>
-                        </h3>
+                        <h3>Table Siswa</h3>
+                        {{-- <a href="{{ route('dashboard') }}" class="btn btn-primary">Go Back</a> --}}
+                        <a href="{{ route('siswa.create') }}" class="btn btn-success">ADD</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -15,33 +15,35 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Nama Siswa</th>
+                                        <th>Email</th>
+                                        <th>No.Telp</th>
                                         <th>Kelas</th>
-                                        <th>Deskripsi</th>
-                                        <th>Action</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($kelas as $item)
+                                    @forelse ($siswa as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->kelas }}</td>
-                                            <td>{{ $item->dkr }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->no_telp }}</td>
+                                            <td>{{ $item->id_kelas }}</td>
                                             <td>
-                                                <form action="{{ route('kelas.destroy', $item->id) }}" method="POST"
-                                                    onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus Data Kelas?')"
-                                                    class="d-flex gap-3">
+                                                <form action="{{ route('siswa.delete', $item->id) }}" method="POST"
+                                                    onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
                                                     @csrf
-                                                    <a href="{{ route('kelas.edit', $item->id) }}" class="btn btn-info"><i
-                                                            class="fa fa-pencil-alt"></i></a>
+                                                    <a href="{{ route('siswa.edit', $item->id) }}"
+                                                        class="btn btn-primary">EDIT</a>
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger"><i
-                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger">REMOVE</button>
                                                 </form>
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4" class="text-center">Data Kelas Belum Ada</td>
+                                            <td colspan="6" class="text-center">DATA SISWA BELUM ADA</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
