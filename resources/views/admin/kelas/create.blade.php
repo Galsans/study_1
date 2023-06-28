@@ -13,7 +13,7 @@
                         <form action="{{ route('kelas.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="">Name</label>
+                                <label for="">Nama Kelas</label>
                                 <input type="text" name="kelas" class="form-control"
                                     placeholder="masukkan nama kelas..." required>
                             </div>
